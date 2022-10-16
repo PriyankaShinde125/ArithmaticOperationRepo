@@ -39,3 +39,21 @@ done
 
 echo "array in descending"
 echo "${resultArr[@]}"
+
+
+l=0
+while [[ $l -le 4 ]]
+do
+for ((i=0;i<4;i++))
+do
+        if [[ ${resultArr[$i]} -gt ${resultArr[$((i+1))]} ]]
+        then
+        temp=${resultArr[$i]}
+        resultArr[$i]=${resultArr[$((i+1))]}
+        resultArr[$((i+1))]=$temp
+        fi
+done
+((l++))
+done
+echo "array in ascending"
+echo "${resultArr[@]}"
